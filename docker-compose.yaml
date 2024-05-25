@@ -70,7 +70,7 @@ services:
       - master_data:/var/lib/gorse
     depends_on:
       - redis
-      - mysql
+      # - mysql
       # - postgres
       # - mongo
       # - clickhouse
