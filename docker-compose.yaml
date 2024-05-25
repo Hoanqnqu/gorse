@@ -12,8 +12,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: default
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: gorse
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -57,7 +59,7 @@ services:
       - 8088:8088
     environment:
       GORSE_CACHE_STORE: redis://redis:6379
-      GORSE_DATA_STORE: mysql://root:default@tcp(mysql:3306)/gorse
+      GORSE_DATA_STORE: mysql://admin:admin@tcp(mysql:3306)/gorse
     command: >
       -c /etc/gorse/config.toml 
       --log-path /var/log/gorse/master.log 
